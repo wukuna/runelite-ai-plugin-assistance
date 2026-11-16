@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI/LLM Plugin Assistance: Stop the Slop"
+  short_description: "Build and review RuneLite plugins with verified APIs"
+  default_prompt: "Use $runelite-plugin-review to develop or review this RuneLite plugin and check relevant existing alternatives."

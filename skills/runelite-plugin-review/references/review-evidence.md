@@ -1,0 +1,48 @@
+# Review evidence by topic
+
+This is a lookup of scoped decisions, not a second policy checklist. Dates/statuses describe the recorded observation; recheck current status and the final submitted source when using a precedent. Official rules outrank older/grandfathered examples. A merge can follow removal of rejected features. Author claims, bot scheduling and unexplained closures are not reviewer rulings.
+
+## APIs and packaging
+
+| Topic | Evidence and qualification |
+|---|---|
+| Filepath required vs exception | [GIM Utilities, Nov 11 audit](https://github.com/runelite/plugin-hub/pull/20149#issuecomment-6806930483) explicitly requires it for new plugins. [Session Tracker, Oct 9 sample](https://github.com/runelite/plugin-hub/pull/17870#issuecomment-6074695447) was a scoped older exception |
+| Other plugins' files | [Right-Clicks, Oct 25](https://github.com/runelite/plugin-hub/pull/19292#issuecomment-6406158424) rejected reading Loot Filters files and Unchecked here; read-only/validated/cached does not resolve ownership |
+| Scanner false positives | [CharStreams](https://github.com/runelite/plugin-hub/pull/19123#issuecomment-6328741300), [FileNotFoundException](https://github.com/runelite/plugin-hub/pull/19277#issuecomment-6446591182): notices need symbol/call-path interpretation |
+| Focus manager / reflection / native | [Improved Chat](https://github.com/runelite/plugin-hub/pull/18159#issuecomment-6087566808), [Battle-Mage](https://github.com/runelite/plugin-hub/pull/18082#issuecomment-6072301153), [VarHandle](https://github.com/runelite/plugin-hub/pull/17424#issuecomment-5938627589). Benign UI intent does not create an exception |
+| Runtime / environment | [Atlas](https://github.com/runelite/plugin-hub/pull/17839#issuecomment-6080340273) rejected availableProcessors; [Kill Clog](https://github.com/runelite/plugin-hub/pull/15941#issuecomment-5518847432) rejected getenv and suggested a property |
+| Audio | [Improved Looting, Oct 30](https://github.com/runelite/plugin-hub/pull/19762#issuecomment-6528512141) flagged Java Sound metadata as well as playback. Test-only fixture generation is separate |
+| Browser API | [Auto Clip, Nov 15 audit](https://github.com/runelite/plugin-hub/pull/20691#issuecomment-6875960952) merged after LinkBrowser.open was flagged; final merge is not permission for the removed API |
+| Restricted API review cost | [hopToWorld](https://github.com/runelite/plugin-hub/pull/19940#issuecomment-6586413414), [setCanSendPackets](https://github.com/runelite/plugin-hub/pull/19963#issuecomment-6585319308), [Unchecked](https://github.com/runelite/plugin-hub/pull/17456#issuecomment-5944698627) carry manual-review consequences, not universal prohibition |
+| Whole-plugin size | [Spyglass clarification](https://github.com/runelite/plugin-hub/pull/19720#issuecomment-6669708290): smaller diffs/removing tests do not solve production size. [Route Planner 215k notice](https://github.com/runelite/plugin-hub/pull/20487#issuecomment-6793609801), later [author cleanup/merge](https://github.com/runelite/plugin-hub/pull/20487#issuecomment-6877772222); exact final count unknown. [Community Map 223k notice](https://github.com/runelite/plugin-hub/pull/20644#issuecomment-6860935963) is an obstacle, not proof of its later closure reason |
+| Review path vs timing | [Voice Chat networking triage](https://github.com/runelite/plugin-hub/pull/19372#issuecomment-6537909735) was distinguished from full manual review; [Improved Chat cooldown](https://github.com/runelite/plugin-hub/pull/20509#issuecomment-6804921036) does not promise completion |
+| Submission hygiene | [Player README](https://github.com/runelite/plugin-hub/pull/19910#issuecomment-6564279757), [remove compiled classes](https://github.com/runelite/plugin-hub/pull/19991#issuecomment-6603092235), [one plugin per PR](https://github.com/runelite/plugin-hub/pull/19992#issuecomment-6591331313), [enabledByDefault feedback](https://github.com/runelite/plugin-hub/pull/19100#issuecomment-6307471795). Follow final scoped requirements; malformed-license feedback does not ban other valid licenses |
+
+## Gameplay and UI
+
+| Topic | Evidence and qualification |
+|---|---|
+| Opponent freeze PvE/PvP | [PvM Toolkit](https://github.com/runelite/plugin-hub/pull/19794#issuecomment-6556288898) rejected PvE opponent-freeze timing. [Freeze Gap, Nov 12](https://github.com/runelite/plugin-hub/pull/20558#issuecomment-6824466713) rejected PvP assistance; visible target positions did not make it acceptable |
+| Attackability and boss cues | [Minimap highlighting](https://github.com/runelite/plugin-hub/pull/19602#issuecomment-6648809230), [Tormented Demon Helper](https://github.com/runelite/plugin-hub/pull/20437#issuecomment-6771205834) rejected the specific cues; changing the display surface does not change their information |
+| Conditional menus | [Reactive Menu Swapper](https://github.com/runelite/plugin-hub/pull/12757#issuecomment-4818248424) rejected broad flexible conditions. [DFS guard](https://github.com/runelite/plugin-hub/pull/17328), inspected source `2a48e683ccd716e868cfc9103fa5eff43d09e887`, had narrow equipment prerequisites and PvP exclusion. Neither establishes a blanket rule for all NPC guards |
+| Display-only reminders | [Bolt Swap Reminder](https://github.com/runelite/plugin-hub/pull/18357), inspected source `9f7d94755d3becfa299314511795f6860fdf0f49`, is bounded comparison evidence, not arbitrary boss prediction permission. [Vorkath warning](https://github.com/runelite/plugin-hub/pull/7302#issuecomment-2620500592) had to identify its source plugin |
+| Manual button actions | [Vicious Bars](https://github.com/runelite/plugin-hub/pull/17663#issuecomment-5965389911), [Call Servant](https://github.com/runelite/plugin-hub/pull/16519#issuecomment-5657152077) rejected menuAction despite user input. [Nexus](https://github.com/runelite/plugin-hub/pull/18224#issuecomment-6105596307) ultimately used one native listener; not a general script exception |
+| Cosmetic/GPU | [Fractured Firearms](https://github.com/runelite/plugin-hub/pull/20341#issuecomment-6725160048) rejected substantial gun-model changes; not every icon adjustment. [New GPU work](https://github.com/runelite/plugin-hub/pull/18907#issuecomment-6273235066) declined pending API; experimental availability is not approval |
+| Corrected decisions | [Stop Casting on Pets](https://github.com/runelite/plugin-hub/pull/19266#issuecomment-6371153847) was later allowed. [BA-autopilot](https://github.com/runelite/plugin-hub/pull/19008#issuecomment-6459630571) removed features. Read later scope, not just first objections |
+| Temporary TFA hold | [Nov 2 hold](https://github.com/runelite/plugin-hub/pull/19956#issuecomment-6580219614) preceded [Nov 9 TFA Mistake Tracker merge](https://github.com/runelite/plugin-hub/pull/20213). Not a current blanket ban; check current feature-specific rules |
+
+## Networking and companions
+
+| Topic | Evidence and qualification |
+|---|---|
+| Wiki warning correction | [Loadout Studio, Nov 14](https://github.com/runelite/plugin-hub/pull/19421#issuecomment-6878205214): verified Wiki-only requests plus identifying User-Agent did not need warning. [Earlier UA request](https://github.com/runelite/plugin-hub/pull/18269#issuecomment-6353800304) |
+| Consent / assets | [Explicit sign-in](https://github.com/runelite/plugin-hub/pull/17891#issuecomment-6008804594) satisfied consent in one case. [Fixed avatar origin](https://github.com/runelite/plugin-hub/pull/19537#issuecomment-6453410846); [self-hosted credited images](https://github.com/runelite/plugin-hub/pull/19040#issuecomment-6374457406) |
+| Companion apps | [Dashboard Sync](https://github.com/runelite/plugin-hub/pull/20020#issuecomment-6603031751), [Turtleland](https://github.com/runelite/plugin-hub/pull/20262#issuecomment-6702283209) rejected external companion distribution; local JSON/no plugin network did not resolve it |
+| HTTP ambiguity | [OSRS Intelligence](https://github.com/runelite/plugin-hub/pull/20239#issuecomment-6793184545) and [Local Bridge](https://github.com/runelite/plugin-hub/pull/20410#issuecomment-6754408620) received exposure objections. [Armory](https://github.com/runelite/plugin-hub/pull/18694) is scoped accepted comparison, not a general outbound-HTTPS exception |
+| Local windows | [Streamer Popout Panels](https://github.com/runelite/plugin-hub/pull/20720) describes local-player Swing windows without server transfer; does not authorize arbitrary client-window manipulation |
+
+## Engineering candidates and unexplained outcomes
+
+Nov 15 audit author reports, **not locally verified fixes or policy exceptions**: [Rebuild Planner](https://github.com/runelite/plugin-hub/pull/20774) snapshots/throttles/plans in background; [Clean Screenshots](https://github.com/runelite/plugin-hub/pull/20636) stops/starts plugins without changing config; [Compass Only](https://github.com/runelite/plugin-hub/pull/20736) and [Interface Transparency](https://github.com/runelite/plugin-hub/pull/20757) affect overlapping widget surfaces; [Group Storage Layouts](https://github.com/runelite/plugin-hub/pull/20771) separates visual placement/native actions with revision checks. Use these to choose compatibility tests, not to assert conflicts.
+
+[Emotes Remapping](https://github.com/runelite/plugin-hub/pull/20722#issuecomment-6883807049) explicitly moved to merged #20723. Now What #20626 and Live On Clan #20690 were author-closed without substantive reasons; later submissions merged, but replacement reasons were not established. Stale closures and superseded PRs are administrative outcomes, not permanent feature bans. Private bot/Discord reasoning is unavailable.
