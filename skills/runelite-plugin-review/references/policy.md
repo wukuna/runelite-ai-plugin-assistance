@@ -6,6 +6,7 @@ Maintained 2026-11-15. This is a decision index, not an exhaustive permission li
 
 | Source | Use |
 |---|---|
+| [Example-plugin AGENTS.md](https://github.com/runelite/example-plugin/blob/master/AGENTS.md) | Current development/testing/submission baseline; read with the target repository's instructions |
 | [Rejected or Rolled Back Features](https://github.com/runelite/runelite/wiki/Rejected-or-Rolled-Back-Features) | APIs/features; rechecked Nov 15, last edit Nov 11 |
 | [Jagex guidelines](https://secure.runescape.com/m=news/third-party-client-guidelines?oldschool=1) | Combat, menus, interface/click-zone boundaries |
 | [April 2024 amendments](https://secure.runescape.com/m=news/undead-pirates-tweaks-varlamore-cas--more?oldschool=1) | Later spellbook movement/hiding, construction and cape exceptions |
@@ -31,7 +32,7 @@ Identify the exact interface before changing click areas. Bank slots differ from
 
 The official list also covers core RuneLite UI/anchors, other plugins' configs, desktop window manipulation, significant asset changes, HTTP player-data exposure and autotyping/outgoing chat rewriting. Plugin-owned controls/services are not blanket exemptions. Local-only client patches are separate deliverables, not automatically eligible Hub code. Compatibility tests establish engineering behavior, not policy approval for every adapter.
 
-Do not generalize bounded accepted NPC equipment guards into unrestricted conditional-menu engines. The historical temporary TFA review hold was superseded; it is not a current blanket ban. [Scoped examples](review-evidence.md#gameplay-and-ui).
+Do not generalize bounded accepted NPC equipment guards into unrestricted conditional-menu engines. Likewise, a later case-specific TFA merge does not establish general acceptance of TFA helpers or repeal the broader policy: the current official list still says new high-end PvM boss plugins are not being considered. The earlier temporary TFA review hold and the broader restriction are distinct. Recheck current policy and the exact reviewed feature. [Scoped examples](review-evidence.md#gameplay-and-ui).
 
 ## Networking, warnings and paid services
 

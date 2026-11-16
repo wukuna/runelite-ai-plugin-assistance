@@ -10,6 +10,14 @@ Use the project's actual checkout, build instructions, release target and curren
 - Run relevant regression checks and the appropriate full suite after behavioral changes. Text-only release edits normally need targeted checks. Archive earlier test reports if a targeted run replaces them. Record failures/skips and unresolved live checks accurately.
 - Inspect jar descriptors, configuration identity, class version, dependencies, bundled resources and attribution. Check the entire public delta for test-only code and excluded experiments. Keep diagnostic executables and audit artifacts outside production packages.
 
+## Player testing handoff
+
+For live tests, follow the [template's testing instructions](https://github.com/runelite/example-plugin/blob/master/AGENTS.md#testing): do not use computer-use tools or scripts to drive RuneScape input. The player performs in-game actions. Builds, fixtures, screenshots and a clean JVM startup do not establish that a feature works in-game.
+
+After a behavioral change, report automated results and give the player a short test list with the setup, action and expected result for each changed behavior, plus relevant lifecycle/compatibility cases. Offer the project's development-client launch command when useful and not already running; the template uses `./gradlew run`. Link the official [Jagex account development-client instructions](https://github.com/runelite/runelite/wiki/Using-Jagex-Accounts) when needed. Do not request account credentials or perform login for the player.
+
+Keep live validation pending until the player confirms it, and record which build and cases were checked. Report completed code/build work separately from outstanding gameplay checks. Documentation-only changes do not require a game session. An explicit request to publish an untested build does not make its in-game behavior verified.
+
 ## Local test variants and saved settings
 
 Use the project's existing local testing arrangement rather than imposing particular profile names or install paths. If a separate sideload identity is used, preserve its descriptor/configName and intentional feature groups while retaining normal public names/defaults in the release artifact. Verify the loaded identity separately from the filename.
@@ -27,6 +35,10 @@ Respect the project's explicit local-only boundary for code, config, resources a
 5. Report the actual state. PR builds are not distribution, and a manifest marked unavailable may prevent delivery even after merge.
 
 Use `build=standard` when it covers the plugin's needs. Recheck packager constraints for custom builds, dependencies, jar size and icons. Include a valid distributable license and required asset attribution; source licensing does not license unrelated artwork or sounds. Do not delete useful tests, minify code or move executable logic into data to evade review limits.
+
+## AI attribution
+
+Check the current template and target repository's submission requirements. The [template's submission section](https://github.com/runelite/example-plugin/blob/master/AGENTS.md#submitting) calls for a `Generated-by` footer on Plugin Hub PR descriptions. Name the assistant that actually contributed: for example, `Generated-by: Codex` for Codex or `Generated-by: Claude Code` for Claude Code. If multiple assistants contributed, identify them accurately. Do not copy a tool name mechanically from the template or infer authorship from the presence of `CLAUDE.md` or `AGENTS.md`. This belongs in the PR description, not an invented source-code attribution comment.
 
 ## Descriptions and release notices
 

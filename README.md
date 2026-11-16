@@ -8,6 +8,16 @@ The aim is useful, maintainable work: understand the problem, make the smallest 
 
 This is an independent community resource, not an official RuneLite or Jagex project. Current official rules and repository requirements take precedence over historical examples.
 
+## Use alongside RuneLite's template
+
+Keep your project's `AGENTS.md` and `CLAUDE.md`. The skill supplements them and checks the current [RuneLite template guidance](https://github.com/runelite/example-plugin/blob/master/AGENTS.md) before implementation or review. Current official restrictions and repository requirements take precedence over historical examples.
+
+- A [compact baseline checklist](skills/runelite-plugin-review/references/baseline.md) covers logging, API identifiers, Filepath setup, lifecycle cleanup, packaging and image sizes.
+- A [player testing handoff](skills/runelite-plugin-review/references/release.md#player-testing-handoff) separates automated checks from player-confirmed behavior. The assistant does not drive RuneScape input to test a plugin.
+- [AI attribution](skills/runelite-plugin-review/references/release.md#ai-attribution) names the assistant that actually contributed when following Plugin Hub submission requirements.
+
+A case-specific TFA merge does not remove the broader restriction on new high-end PvM boss plugins. [Policy guidance](skills/runelite-plugin-review/references/policy.md#gameplay-and-ui) keeps those scopes separate.
+
 ## Start here
 
 Use the [installable skill](skills/runelite-plugin-review/SKILL.md) for the working instructions. The [Google Doc companion](https://docs.google.com/document/d/1BoORYQXSyqYnQInRbOBOFJfqXPgt-5dRx1wE5rYsvFc) provides a readable introduction and links back to the maintained references.
@@ -88,6 +98,7 @@ from anything that still needs an in-game test.
 
 | Topic | Guidance |
 |---|---|
+| Repository baseline | [Template guidance and practical development checks](skills/runelite-plugin-review/references/baseline.md) |
 | Existing alternatives | [Search directories, verify matches, and recommend use or contribution](skills/runelite-plugin-review/references/discovery.md) |
 | Policy | [Current official restrictions and scoped reviewer evidence](skills/runelite-plugin-review/references/policy.md) |
 | Runtime | [Client thread, Swing, events, scripts, images, and config proxies](skills/runelite-plugin-review/references/runtime.md) |

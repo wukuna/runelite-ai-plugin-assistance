@@ -10,6 +10,12 @@ RuneLite development guidance for AI coding assistants.
 
 Support the developer's requested outcome and repository conventions. Distinguish a local prototype, an exposed provider API, an open PR, and the Plugin Hub's published source. This skill does not authorize installation, publication, profile transfers, or contacting maintainers.
 
+## Start with the repository baseline
+
+Before implementation or review, read the target repository's applicable `AGENTS.md`, `CLAUDE.md` and build instructions, then check the current [RuneLite template guidance](https://github.com/runelite/example-plugin/blob/master/AGENTS.md). Keep the project's instruction files; this skill supplements them. Use [baseline.md](references/baseline.md) for the compact development checklist. Reuse a verified reading during the same task; refresh affected guidance before release if it has changed.
+
+Current official restrictions and applicable repository requirements take precedence over this skill's historical examples. Identify conflicting guidance and resolve its scope from current sources; a past accepted plugin is not an exception for a new feature. Report unavailable sources rather than claiming to have checked them.
+
 ## Check existing plugins without blocking development
 
 When planning a new plugin or a substantial feature, search the plugin directory for the requested behavior and useful synonyms. Use an accessible curated Google Sheet or Doc when available, and the public Plugin Hub as a fallback and availability check. Follow [discovery.md](references/discovery.md) to verify the strongest matches.
@@ -20,6 +26,7 @@ For an exact match, recommend using the existing plugin. For a close match, expl
 
 | Task / search terms | Reference |
 |---|---|
+| Template instructions, logging, gameval, Filepath setup, packaging, cleanup | [baseline.md](references/baseline.md) at implementation or review start |
 | Similar plugins, feature search, Google Sheet/Doc, use vs contribute | [discovery.md](references/discovery.md) |
 | Eligibility, PvP/PvM, menuAction, networking, paid services, Filepath | [policy.md](references/policy.md) before selecting affected behavior/APIs |
 | ClientThread, EDT, EventBus, scripts, config proxies, images, lifecycle | [runtime.md](references/runtime.md) |
@@ -33,7 +40,7 @@ For an exact match, recommend using the existing plugin. For a close match, expl
 
 1. Identify the loaded/published source, target RuneLite version, Java/tooling requirements and affected provider contracts. Historical evidence here spans RuneLite 1.13.3–1.13.6; it does not pin a new project to those versions.
 2. Trace the trigger through its owner, thread, rebuild and restoration paths. A saved enabled key does not prove runtime activation; temporal proximity does not establish causation.
-3. Preserve configuration identity, saved settings, native actions and game-imposed hiding. Exercise affected lifecycle and interoperability boundaries; label automated checks separately from live confirmation.
+3. Preserve configuration identity, saved settings, native actions and game-imposed hiding. Exercise affected lifecycle and interoperability boundaries; label automated checks separately from live confirmation and follow the [player testing handoff](references/release.md#player-testing-handoff).
 4. Review the whole change from the currently published source. The bundled read-only helper can flag API candidates: run `python <skill-directory>/scripts/preflight.py <project-directory> --include-tests`, resolving both paths in the current environment. For a multi-module project, scan the applicable modules. Interpret findings in context; this lexical scan cannot establish compliance, inspect dependencies, resolve types, validate gameplay or reproduce review-bot token counts.
 5. Before publishing, recheck relevant official rules and actual PR feedback, then follow the project's release workflow. Report precisely what was built, tested, installed, submitted or merged.
 
